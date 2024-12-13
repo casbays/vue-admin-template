@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      title: 'Vue Admin Template',
+      title: 'Vue Admin',
       logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
     }
   }
@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~@/styles/variables.scss";
+
 .sidebarLogoFade-enter-active {
   transition: opacity 1.5s;
 }
@@ -43,11 +45,11 @@ export default {
 
 .sidebar-logo-container {
   position: relative;
+  padding: 0 12px;
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background: #2b2f3a;
-  text-align: center;
+  background: $menuBg;
   overflow: hidden;
 
   & .sidebar-logo-link {
@@ -67,7 +69,7 @@ export default {
       color: #fff;
       font-weight: 600;
       line-height: 50px;
-      font-size: 14px;
+      font-size: 18px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }
