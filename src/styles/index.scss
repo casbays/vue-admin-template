@@ -6,6 +6,7 @@
 
 body {
   height: 100%;
+  background: #f1f3f4;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -67,4 +68,17 @@ div:focus {
 .flex {
   display: flex;
   align-items: center;
+}
+
+.c-text-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(31,35,41,.1);
+  }
 }

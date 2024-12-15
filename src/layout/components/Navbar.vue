@@ -1,31 +1,35 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <hamburger :is-active="sidebar.opened" @toggleClick="toggleSideBar" />
 
     <breadcrumb class="breadcrumb-container" />
 
+    <div style="flex: 1 1 0%; min-width: 0;"></div>
+
     <div class="right-menu flex">
-      <el-dropdown class="avatar-container" trigger="click">
-        <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
-        </div>
-        <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
-            <el-dropdown-item>
-              Home
+      <div class="right-menu-item">
+        <el-dropdown class="avatar-dropdown" trigger="click">
+          <div class="avatar-wrapper">
+            <img src="@/assets/nezha.jpeg" class="user-avatar">
+          </div>
+          <el-dropdown-menu slot="dropdown" class="user-menu-wraper">
+            <router-link to="/">
+              <el-dropdown-item>
+                Home
+              </el-dropdown-item>
+            </router-link>
+            <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
+              <el-dropdown-item>Github</el-dropdown-item>
+            </a>
+            <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
+              <el-dropdown-item>Docs</el-dropdown-item>
+            </a>
+            <el-dropdown-item divided @click.native="logout">
+              <span style="display:block;">Log Out</span>
             </el-dropdown-item>
-          </router-link>
-          <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
-            <el-dropdown-item>Github</el-dropdown-item>
-          </a>
-          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
-            <el-dropdown-item>Docs</el-dropdown-item>
-          </a>
-          <el-dropdown-item divided @click.native="logout">
-            <span style="display:block;">Log Out</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
     </div>
   </div>
 </template>
@@ -62,24 +66,14 @@ export default {
 @import "~@/styles/variables.scss";
 
 .navbar {
+  display: flex;
+  align-items: center;
   height: 50px;
+  padding-left: 8px;
   overflow: hidden;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
-
-  .hamburger-container {
-    line-height: 46px;
-    height: 100%;
-    float: left;
-    cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
-
-    &:hover {
-      background: rgba(0, 0, 0, .025)
-    }
-  }
+  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
 
   .breadcrumb-container {
     float: left;
@@ -101,6 +95,9 @@ export default {
       font-size: 18px;
       color: #5a5e66;
       vertical-align: text-bottom;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &.hover-effect {
         cursor: pointer;
@@ -112,29 +109,28 @@ export default {
       }
     }
 
-    .avatar-container {
-      margin-right: 30px;
+    .avatar-wrapper {
+      padding: 6px;
+      line-height: 1;
+      font-size: 0;
+      border-radius: 99px;
+      position: relative;
 
-      .avatar-wrapper {
-        padding: 6px;
-        position: relative;
+      &:hover {
+        background-color: rgba(0, 0, 0, .045);
+      }
 
-        .user-avatar {
-          cursor: pointer;
-          width: 32px;
-          height: 32px;
-          border-radius: 32px;
-        }
-
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
-        }
+      .user-avatar {
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
       }
     }
   }
+}
+
+.user-menu-wraper {
+  width: 248px;
 }
 </style>
