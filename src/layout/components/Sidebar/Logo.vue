@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      title: 'Vue Admin'
+      title: 'SYSTEM'
     }
   }
 }
@@ -43,7 +43,7 @@ export default {
 
 .sidebar-logo-container {
   position: relative;
-  padding: 0 12px;
+  padding: 0 14px;
   width: 100%;
   height: 50px;
   line-height: 50px;

@@ -11,21 +11,26 @@
         <el-dropdown class="avatar-dropdown" trigger="click">
           <div class="avatar-wrapper">
             <img src="@/assets/nezha.jpeg" class="user-avatar">
+            <div class="status-dot"></div>
           </div>
           <el-dropdown-menu slot="dropdown" class="user-menu-wraper">
             <router-link to="/">
-              <el-dropdown-item>
+              <el-dropdown-item icon="iconfont icon-shouye1">
                 Home
               </el-dropdown-item>
             </router-link>
-            <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
-              <el-dropdown-item>Github</el-dropdown-item>
+            <a target="_blank" href="https://github.com/casbays/vue-admin-template/">
+              <el-dropdown-item icon="iconfont icon-github">
+                Github
+              </el-dropdown-item>
             </a>
             <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
-              <el-dropdown-item>Docs</el-dropdown-item>
+              <el-dropdown-item icon="iconfont icon-zhishidian1">
+                Docs
+              </el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click.native="logout">
-              <span style="display:block;">Log Out</span>
+            <el-dropdown-item icon="iconfont icon-tuichuzhanghu1" divided @click.native="logout">
+              Log Out
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -110,14 +115,18 @@ export default {
     }
 
     .avatar-wrapper {
-      padding: 6px;
+      padding: 4px;
       line-height: 1;
       font-size: 0;
       border-radius: 99px;
       position: relative;
 
       &:hover {
-        background-color: rgba(0, 0, 0, .045);
+        background-color: rgba(31, 35, 41, .1);
+      }
+
+      &:active {
+        background-color: rgba(31, 35, 41, 0.15);
       }
 
       .user-avatar {
@@ -125,6 +134,17 @@ export default {
         width: 32px;
         height: 32px;
         border-radius: 32px;
+      }
+
+      .status-dot {
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        width: 12px;
+        height: 12px;
+        border: 2px solid #fff;
+        border-radius: 99px;
+        background-color: #07c160;
       }
     }
   }
